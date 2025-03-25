@@ -255,13 +255,16 @@ async def ffmpeg_mux_with_progress(
         ]
     else:
         cmd = [
-            "ffmpeg",
-            "-i", str(input_video),
-            "-vf", f"subtitles={input_sub}",
-            "-c:a", "copy",
-            "-progress", "pipe:1",
-            "-nostats",
-            str(output_path)
+           "ffmpeg",
+           "-i", str(input_video),
+           "-vf", f"subtitles={input_sub}",
+           "-c:v", "libx264",           # Use x264 encoder for video
+           "-preset", "ultrafast",      # Faster encoding at cost of compression efficiency/quality
+           "-crf", "23",                # Quality control (lower value = better quality; default ~23)
+           "-c:a", "copy",              # Copy audio stream without re-encoding
+           "-progress", "pipe:1",
+           "-nostats",
+        str(output_path)
         ]
     
     status_msg = await message.reply_text("⏳ Starting FFmpeg process...")
