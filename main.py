@@ -259,8 +259,8 @@ async def ffmpeg_mux_with_progress(
            "-i", str(input_video),
            "-vf", f"subtitles={input_sub}",
            "-c:v", "libx264",           # Use x264 encoder for video
-           "-preset", "ultrafast",      # Faster encoding at cost of compression efficiency/quality
-           "-crf", "23",                # Quality control (lower value = better quality; default ~23)
+           "-preset", "fast",      # Faster encoding at cost of compression efficiency/quality
+           "-crf", "27",                # Quality control (lower value = better quality; default ~23)
            "-c:a", "copy",              # Copy audio stream without re-encoding
            "-progress", "pipe:1",
            "-nostats",
