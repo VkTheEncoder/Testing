@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 API_ID = 27999679
 API_HASH = "f553398ca957b9c92bcb672b05557038"
 BOT_TOKEN = "7747531722:AAFgE11HA4SbfjOFWTVT3_Sp-xR8tBDJdeo"
-MAX_FILE_SIZE = 2000000000  # 2GB
+MAX_FILE_SIZE = 4000000000  # 4GB
 SUPPORTED_SUBTITLE_EXT = [".srt", ".ass", ".ssa", ".vtt"]
 
 # Temporary directory for storing downloads and processed files
