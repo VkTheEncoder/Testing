@@ -1,5 +1,5 @@
-pyrogram>=2.0,<3.0
-tgcrypto>=1.2.2
+pyrogram
+tgcrypto
 Flask
 six
 urllib3
