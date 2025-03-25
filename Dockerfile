@@ -22,4 +22,4 @@ ENV API_HASH=your_api_hash
 ENV BOT_TOKEN=your_bot_token
 
 # Run the bot (assuming your main script is named bot.py)
-CMD ["python", "bot.py"]
+CMD ["python", "main.py"]
