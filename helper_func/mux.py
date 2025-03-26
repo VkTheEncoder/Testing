@@ -101,15 +101,16 @@ async def hardmux_vid(vid_filename, sub_filename, msg):
     out_location = Config.DOWNLOAD_DIR+'/'+output
     
     command = [
-            'ffmpeg','-hide_banner',
-            '-i',vid,
-            '-vf','subtitles='+sub,
-            '-c:v','h264',
-            '-map','0:v:0',
-            '-map','0:a:0?',
-            '-preset','ultrafast',
-            '-y',out_location
-            ]
+       'ffmpeg', '-hide_banner',
+       '-i', vid,
+       '-vf', f"subtitles={sub}",
+       '-c:v', 'libx264',         # Use libx264 encoder instead of 'h264'
+       '-preset', 'fast',    # You can change this to 'medium', 'slow', etc.
+       '-crf', '27',              # Adjust CRF (lower is better quality, higher is more compressed)
+       '-map', '0:v:0',
+       '-map', '0:a:0?',
+       '-y', out_location
+    ]
     process = await asyncio.create_subprocess_exec(
             *command,
             stdout=asyncio.subprocess.PIPE,
