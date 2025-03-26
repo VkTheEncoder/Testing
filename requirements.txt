@@ -1,7 +1,0 @@
-pyrogram
-tgcrypto
-Flask
-six
-urllib3
-hypercorn
-pillow
